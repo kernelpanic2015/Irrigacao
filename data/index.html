@@ -22,6 +22,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
+        margin-bottom: 30px;
       }
 
       button {
@@ -43,13 +44,27 @@
         background-color: #f44336;
         color: white;
       }
+
+      #sincronizar {
+        background-color: #2196f3;
+        color: white;
+        margin-top: 20px;
+      }
+
+      #sincronizar:hover {
+        background-color: #1976d2;
+      }
     </style>
   </head>
   <body>
     <h1>Controle de Relés</h1>
     <div id="botoes">Carregando estados...</div>
+    <button id="sincronizar" onclick="sincronizarHora()">
+      Sincronizar Hora
+    </button>
 
     <script>
+      // Carrega estados dos relés
       fetch('/api/estado')
         .then((res) => res.json())
         .then((data) => {
@@ -70,10 +85,7 @@
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams({
-                  id: i,
-                  estado: novoEstado,
-                }),
+                body: `id=${i}&estado=${novoEstado}`,
               }).then(() => {
                 btn.dataset.estado = novoEstado;
                 btn.textContent = `Relé ${i} ${
@@ -85,6 +97,19 @@
             container.appendChild(btn);
           }
         });
+
+      // Sincroniza hora com o navegador
+      function sincronizarHora() {
+        const agora = new Date();
+        const hora = agora.getHours();
+        const minuto = agora.getMinutes();
+
+        fetch('/api/tempo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `hora=${hora}&minuto=${minuto}`,
+        }).then(() => alert(`Hora sincronizada: ${hora}:${minuto}`));
+      }
     </script>
   </body>
 </html>

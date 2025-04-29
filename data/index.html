@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kunugui - Controle de Relés</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+      }
+
+      #botoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #ccc;
+        transition: background-color 0.3s;
+      }
+
+      button[data-estado='1'] {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      button[data-estado='0'] {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Controle de Relés</h1>
+    <div id="botoes">Carregando estados...</div>
+
+    <script>
+      fetch('/api/estado')
+        .then((res) => res.json())
+        .then((data) => {
+          const container = document.getElementById('botoes');
+          container.innerHTML = '';
+
+          for (let i = 1; i <= 4; i++) {
+            const estado = data[`saida${i}`] ? '1' : '0';
+            const btn = document.createElement('button');
+            btn.textContent = `Relé ${i} ${estado === '1' ? 'ON' : 'OFF'}`;
+            btn.dataset.estado = estado;
+
+            btn.onclick = () => {
+              const novoEstado = btn.dataset.estado === '0' ? '1' : '0';
+
+              fetch('/api/saida', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                  id: i,
+                  estado: novoEstado,
+                }),
+              }).then(() => {
+                btn.dataset.estado = novoEstado;
+                btn.textContent = `Relé ${i} ${
+                  novoEstado === '1' ? 'ON' : 'OFF'
+                }`;
+              });
+            };
+
+            container.appendChild(btn);
+          }
+        });
+    </script>
+  </body>
+</html>

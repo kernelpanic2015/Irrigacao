@@ -1,0 +1,136 @@
+{
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.enablePreview": false,
+  "platformio-ide.toolbar": [
+    {
+      "text": "$(home)",
+      "tooltip": "PlatformIO: Home",
+      "commands": "platformio-ide.showHome"
+    },
+    {
+      "text": "$(trash)",
+      "tooltip": "PlatformIO: Clean",
+      "commands": "platformio-ide.clean"
+    },
+    {
+      "text": "$(check)",
+      "tooltip": "PlatformIO: Build",
+      "commands": "platformio-ide.build"
+    },
+    {
+      "text": "Upload",
+      "tooltip": "PlatformIO: Flash firmware (NO build run)",
+      "commands": [
+        {
+          "id": "platformio-ide.runPIOCoreCommand",
+          "args": "pio run -t nobuild -t factory_flash -e ${command:platformio-ide.activeEnvironment}"
+        }
+      ]
+    },
+    {
+      "text": "$(zap)",
+      "tooltip": "PlatformIO: Build and Upload",
+      "commands": "platformio-ide.upload"
+    },
+    {
+      "text": "$(flame)",
+      "tooltip": "PlatformIO: Build, Erase and Upload",
+      "commands": [
+        {
+          "id": "platformio-ide.runPIOCoreCommand",
+          "args": "pio run -t erase_upload -e ${command:platformio-ide.activeEnvironment}"
+        }
+      ]
+    },
+    {
+      "text": "$(error)",
+      "tooltip": "PlatformIO: Erase Flash",
+      "commands": [
+        {
+          "id": "platformio-ide.runPIOCoreCommand",
+          "args": "pio run -t nobuild -t erase -e ${command:platformio-ide.activeEnvironment}"
+        }
+      ]
+    },
+    {
+      "text": "$(arrow-right)",
+      "tooltip": "PlatformIO: Build, Upload and Monitor",
+      "commands": "platformio-ide.uploadAndMonitor"
+    },
+    {
+      "text": "$(device-desktop)",
+      "tooltip": "PlatformIO: Serial Monitor",
+      "commands": "platformio-ide.serialMonitor"
+    },
+    {
+      "text": "$(terminal)",
+      "tooltip": "PlatformIO: New Terminal",
+      "commands": "platformio-ide.newTerminal"
+    },
+    {
+      "text": "$(refresh)",
+      "tooltip": "PlatformIO: Rebuild IntelliSense Index",
+      "commands": "platformio-ide.rebuildProjectIndex"
+    }
+  ],
+  "files.associations": {
+    "*.xbm": "cpp"
+  },
+  "C_Cpp_Runner.msvcBatchPath": "",
+  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cppCompilerPath": "g++",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wcast-align",
+    "-Wconversion",
+    "-Wsign-conversion",
+    "-Wnull-dereference"
+  ],
+  "C_Cpp_Runner.msvcWarnings": [
+    "/W4",
+    "/permissive-",
+    "/w14242",
+    "/w14287",
+    "/w14296",
+    "/w14311",
+    "/w14826",
+    "/w44062",
+    "/w44242",
+    "/w14905",
+    "/w14906",
+    "/w14263",
+    "/w44265",
+    "/w14928"
+  ],
+  "C_Cpp_Runner.enableWarnings": true,
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [],
+  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.includePaths": [],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ],
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "C_Cpp_Runner.useUndefinedSanitizer": false,
+  "C_Cpp_Runner.useLeakSanitizer": false,
+  "C_Cpp_Runner.showCompilationTime": false,
+  "C_Cpp_Runner.useLinkTimeOptimization": false,
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
+}

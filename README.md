@@ -139,5 +139,4 @@ Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](LI
 
 ---
 
-> Desenvolvido com ❤️ por [Enaldo Leite](enaldo@yahoo.com)  
-> GitHub: https://github.com/SEU_USUARIO/kunugui-esp32-relay-controller
+> Desenvolvido com ❤️ por [Enaldo Leite](enaldo@yahoo.com)

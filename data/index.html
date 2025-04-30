@@ -7,32 +7,30 @@
     <style>
       body {
         font-family: sans-serif;
-        text-align: center;
         margin: 0;
         padding: 20px;
         background-color: #f2f2f2;
+        text-align: center;
       }
 
       h1 {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
 
-      #botoes {
+      .botoes {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
 
       button {
         font-size: 1rem;
-        padding: 15px 25px;
-        border: none;
+        padding: 10px 20px;
         border-radius: 8px;
+        border: none;
         cursor: pointer;
-        background-color: #ccc;
-        transition: background-color 0.3s;
       }
 
       button[data-estado='1'] {
@@ -44,42 +42,32 @@
         background-color: #f44336;
         color: white;
       }
-
-      #sincronizar {
-        background-color: #2196f3;
-        color: white;
-        margin-top: 20px;
-      }
-
-      #sincronizar:hover {
-        background-color: #1976d2;
-      }
     </style>
   </head>
   <body>
-    <h1>Controle de Relés</h1>
-    <div id="botoes">Carregando estados...</div>
-    <button id="sincronizar" onclick="sincronizarHora()">
-      Sincronizar Hora
-    </button>
+    <h1>Kunugui - Controle de Relés</h1>
+
+    <!-- Container para os botões dos relés -->
+    <div class="botoes" id="botoes">Carregando estados...</div>
 
     <script>
-      // Carrega estados dos relés
+      /**
+       * Carrega os estados dos relés via API e cria os botões dinamicamente.
+       */
       fetch('/api/estado')
         .then((res) => res.json())
         .then((data) => {
           const container = document.getElementById('botoes');
           container.innerHTML = '';
-
           for (let i = 1; i <= 4; i++) {
             const estado = data[`saida${i}`] ? '1' : '0';
             const btn = document.createElement('button');
             btn.textContent = `Relé ${i} ${estado === '1' ? 'ON' : 'OFF'}`;
             btn.dataset.estado = estado;
 
+            // Define comportamento ao clicar no botão
             btn.onclick = () => {
               const novoEstado = btn.dataset.estado === '0' ? '1' : '0';
-
               fetch('/api/saida', {
                 method: 'POST',
                 headers: {
@@ -97,19 +85,6 @@
             container.appendChild(btn);
           }
         });
-
-      // Sincroniza hora com o navegador
-      function sincronizarHora() {
-        const agora = new Date();
-        const hora = agora.getHours();
-        const minuto = agora.getMinutes();
-
-        fetch('/api/tempo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: `hora=${hora}&minuto=${minuto}`,
-        }).then(() => alert(`Hora sincronizada: ${hora}:${minuto}`));
-      }
     </script>
   </body>
 </html>

@@ -110,8 +110,8 @@ AsyncWebServer server(80);
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/SEU_USUARIO/kunugui-esp32-relay-controller.git
-   cd kunugui-esp32-relay-controller
+   git clone https://github.com/kernelpanic2015/kunugui.git
+   cd kunugui
    ```
 2. Abra no VS Code com PlatformIO.
 3. Conecte o ESP32 via USB.

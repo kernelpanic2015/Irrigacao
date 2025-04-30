@@ -1,8 +1,8 @@
 # Irrigação do Kunugui
 
-## Equipe ARR da [Fazenda dos Cogumelos](fazendadoscogumelos.com.br):
+## Equipe ARR da [Fazenda dos Cogumelos](https://fazendadoscogumelos.com.br):
 
-Coordenador: Professor [Carlos Abe](fazendadoscogumelos.com.br)
+Coordenador: _Professor [Carlos Abe](https://fazendadoscogumelos.com.br)_
 
 - Enaldo Leite
 - Everton Shons

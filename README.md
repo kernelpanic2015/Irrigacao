@@ -5,9 +5,9 @@
 Coordenador: _Professor [Carlos Abe](mailto:sac@azendadoscogumelos.com.br)_
 
 - Enaldo Leite
-- Everton Shons
+- Everton Schons
 - João Malacrida
-- Muriah
+- Muriah Mussi
 - Nicolas Ritton
 
 ## ESP32 Controlador de Relés

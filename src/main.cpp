@@ -13,13 +13,13 @@
 // --- Parâmetros de temporização ---
 /// @brief Intervalo entre acionamentos automáticos (em milissegundos).
 ///        Por padrão: 2 horas = 2 * 60 * 60 * 1000.
-// unsigned long INTERVALO_AUTO = 2UL * 60UL * 60UL * 1000UL;
-unsigned long INTERVALO_AUTO = 1UL * 60UL * 1000UL; // 1 minuto
+unsigned long INTERVALO_AUTO = 2UL * 60UL * 60UL * 1000UL;
+// unsigned long INTERVALO_AUTO = 1UL * 60UL * 1000UL; // 1 minuto
 
 /// @brief Duração do acionamento automático (em milissegundos).
 ///        Por padrão: 4 minutos = 4 * 60 * 1000.
-// unsigned long TEMPO_LIGADO = 4UL * 60UL * 1000UL;
-unsigned long TEMPO_LIGADO = 1UL * 60UL * 1000UL; // 1 minuto de duração, por exemplo
+unsigned long TEMPO_LIGADO = 4UL * 60UL * 1000UL;
+// unsigned long TEMPO_LIGADO = 1UL * 60UL * 1000UL; // 1 minuto de duração, por exemplo
 
 // GPIOs dos relés
 const int saidas[] = {4, 16, 17, 18};

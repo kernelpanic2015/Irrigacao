@@ -2,7 +2,7 @@
 
 ## Equipe ARR da [Fazenda dos Cogumelos](https://fazendadoscogumelos.com.br):
 
-Coordenador: _Professor [Carlos Abe](https://fazendadoscogumelos.com.br)_
+Coordenador: _Professor [Carlos Abe](mailto:sac@azendadoscogumelos.com.br)_
 
 - Enaldo Leite
 - Everton Shons
@@ -139,4 +139,4 @@ Este projeto está licenciado sob a **MIT License**. Veja o arquivo [LICENSE](LI
 
 ---
 
-> Desenvolvido com ❤️ por [Enaldo Leite](enaldo@yahoo.com)
+> Desenvolvido com ❤️ por [Enaldo Leite](mailto:enaldo@yahoo.com)
